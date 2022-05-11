@@ -1,0 +1,32 @@
+load(
+    "@rules_rust//rust:defs.bzl",
+    "rust_library",
+)
+
+package(default_visibility = ["//visibility:public"])
+
+licenses([
+    "notice",  # MIT from expression "MIT"
+])
+
+rust_library(
+    name = "safe_ftdi",
+    srcs = glob(["src/*.rs"]),
+    aliases = {
+    },
+    crate_features = [
+        "default",
+    ],
+    crate_root = "src/lib.rs",
+    data = [],
+    edition = "2018",
+    rustc_flags = [
+        "--cap-lints=allow",
+    ],
+    tags = [
+        "crate-name=safe-ftdi",
+    ],
+    deps = [
+        "//third_party/rust/crates:libftdi1_sys",
+    ],
+)

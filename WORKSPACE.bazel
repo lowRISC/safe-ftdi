@@ -2,6 +2,9 @@ workspace(name = "com_github_safe_ftdi")
 
 # Rust Toolchain + crates.io Dependencies
 load("//third_party/rust:repos.bzl", "rust_repos")
+
 rust_repos()
+
 load("//third_party/rust:deps.bzl", "rust_deps")
+
 rust_deps()
