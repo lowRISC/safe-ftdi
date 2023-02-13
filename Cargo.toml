@@ -21,13 +21,3 @@ argparse = "0.2.2"
 bitreader = "0.3.1"
 bitflags = "1.0.4"
 byteorder = "1.2.6"
-
-[workspace.metadata.raze]
-workspace_path = "//third_party/rust/crates"
-experimental_api = true
-package_aliases_dir = "third_party/rust/crates"
-genmode = "Remote"
-
-targets = [
-    "x86_64-unknown-linux-gnu",
-]
