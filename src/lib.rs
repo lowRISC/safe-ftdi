@@ -448,9 +448,9 @@ impl Device {
             self.load_eeprom_data()?;
         }
 
-        let mut manufacturer_buf = [0i8; 100];
-        let mut description_buf = [0i8; 100];
-        let mut serial_buf = [0i8; 100];
+        let mut manufacturer_buf = [0u8; 100];
+        let mut description_buf = [0u8; 100];
+        let mut serial_buf = [0u8; 100];
 
         let rc = unsafe { ftdic::ftdi_read_eeprom(self.context.get_ftdi_context()) };
         self.context.check_ftdi_error(rc)?;
@@ -518,9 +518,9 @@ pub fn list_devices() -> Result<Vec<DeviceInfo>> {
     context.check_ftdi_error(rc)?;
 
     let mut devices = Vec::with_capacity(rc as usize);
-    let mut manufacturer_buf = [0i8; 100];
-    let mut description_buf = [0i8; 100];
-    let mut serial_buf = [0i8; 100];
+    let mut manufacturer_buf = [0u8; 100];
+    let mut description_buf = [0u8; 100];
+    let mut serial_buf = [0u8; 100];
 
     let mut curdev = device_list;
     while !curdev.is_null() {
